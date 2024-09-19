@@ -712,27 +712,76 @@ for (const course of arr) {
 
 
 
-while (true) {
-    let mess = prompt("Как вас зовут?");
+// while (true) {
+//     let mess = prompt("Как вас зовут?");
 
-    if (mess.toLowerCase().trim() === "alex") {
-        let money = prompt("Номер счета?")
-        if (money == 7777 ) {
-            let howMuch = prompt("Скок обналичить?")
-            let random = parseInt(Math.random() * 100000)
-            if (howMuch.trim() <= random) {
-               let owe = random - howMuch
-               alert (`Вот скок ты снял ${howMuch}. А вот скок осталось на твоем счету${owe}!`)
-               break
-            } else {
-                alert("You have insufficient amount of money")
-            }
-        } else {
-            alert ("No such number found! Try again pall!")
-        }
+//     if (mess.toLowerCase().trim() === "alex") {
+//         let money = prompt("Номер счета?")
+//         if (money == 7777 ) {
+//             let howMuch = prompt("Скок обналичить?")
+//             let random = parseInt(Math.random() * 100000)
+//             if (howMuch.trim() <= random) {
+//                let owe = random - howMuch
+//                alert (`Вот скок ты снял ${howMuch}. А вот скок осталось на твоем счету${owe}!`)
+//                break
+//             } else {
+//                 alert("You have insufficient amount of money")
+//             }
+//         } else {
+//             alert ("No such number found! Try again pall!")
+//         }
 
-    } else (
-        alert("No such user found! Try again!")
-    )
+//     } else (
+//         alert("No such user found! Try again!")
+//     )
 
+// }
+
+let successfull = [];
+let unsuccessfull = [];
+
+
+let maxEx = users[0]; 
+let minEx = users[0];  
+
+
+for (let user of users) {
+    let totalExpenses = 0;
+
+    for (let expense of user.expenses) {
+        totalExpenses += expense;
+    }
+
+    let taxSum = (user.tax * user.budget) / 100; 
+    totalExpenses += taxSum;  
+
+    console.log("Total expenses for " + user.name + ": " + totalExpenses);
+
+  
+    if (totalExpenses > user.budget) {
+        unsuccessfull.push(user.name);
+    } else {
+        successfull.push(user.name);
+    }
+
+     
+       let maxExpenses = maxEx.expenses.reduce((a, b) => a + b, );
+       let minExpenses = minEx.expenses.reduce((a, b) => a + b, );
+   
+       if (totalExpenses > maxExpenses) {
+           maxEx = user;
+       }
+   
+       if (totalExpenses < minExpenses) {
+           minEx = user;
+       }
 }
+
+console.log("Successful users:", successfull);
+console.log("Unsuccessful users:", unsuccessfull);
+
+
+
+console.warn("User with max expenses:", maxEx);
+console.warn("User with min expenses:", minEx);
+
