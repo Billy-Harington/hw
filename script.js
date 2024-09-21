@@ -737,51 +737,123 @@ for (const course of arr) {
 
 // }
 
-let successfull = [];
-let unsuccessfull = [];
+// let users = [
+//     {
+//         id: 1, 
+//         name: "Samir",
+//         tax: 12,
+//          budget: 400,
+//         expenses: [100, 120, 170]
+//     },
+//     { id: 2, name: "Safina", tax: 9, budget: 1700, expenses: [300, 200, 600] },
+//     { id: 3, name: "Leyla", tax: 9, budget: 1500, expenses: [180, 240, 500] },
+//     { id: 4, name: "Azim", tax: 12, budget: 180, expenses: [40, 30, 10] }
+// ];
 
 
-let maxEx = users[0]; 
-let minEx = users[0];  
 
 
-for (let user of users) {
-    let totalExpenses = 0;
 
-    for (let expense of user.expenses) {
-        totalExpenses += expense;
-    }
+// let successfull = [];
+// let unsuccessfull = [];
 
-    let taxSum = (user.tax * user.budget) / 100; 
-    totalExpenses += taxSum;  
 
-    console.log("Total expenses for " + user.name + ": " + totalExpenses);
+// let maxEx = users[0];
+// let minEx = users[0];
 
-  
-    if (totalExpenses > user.budget) {
-        unsuccessfull.push(user.name);
-    } else {
-        successfull.push(user.name);
-    }
 
-     
-       let maxExpenses = maxEx.expenses.reduce((a, b) => a + b, );
-       let minExpenses = minEx.expenses.reduce((a, b) => a + b, );
-   
-       if (totalExpenses > maxExpenses) {
-           maxEx = user;
-       }
-   
-       if (totalExpenses < minExpenses) {
-           minEx = user;
-       }
+// for (let user of users) {
+//     let totalExpenses = 0;
+
+//     for (let expense of user.expenses) {
+//         totalExpenses += expense;
+//     }
+
+//     let taxSum = (user.tax * user.budget) / 100;
+//     totalExpenses += taxSum;
+
+//     console.log("Total expenses for " + user.name + ": " + totalExpenses);
+
+
+//     if (totalExpenses > user.budget) {
+//         unsuccessfull.push(user.name);
+//     } else {
+//         successfull.push(user.name);
+//     }
+
+
+//     let maxExpenses = maxEx.expenses.reduce((a, b) => a + b,);
+//     let minExpenses = minEx.expenses.reduce((a, b) => a + b,);
+
+//     if (totalExpenses > maxExpenses) {
+
+//         maxEx = user;
+//     }
+
+//     if (totalExpenses < minExpenses) {
+//         minEx = user;
+//     }
+// }
+
+// console.log("Successful users:", successfull);
+// console.log("Unsuccessful users:", unsuccessfull);
+
+
+
+// console.warn("User with max expenses:", maxEx);
+// console.warn("User with min expenses:", minEx);
+
+
+// const userOne = {
+//     name:"Alex",
+//     age:29
+// }
+
+// const userTwo = {
+//     name:"Bob",
+//     age:17
+// }
+
+
+// function checkUser(user) {
+//     if (user.age >= 18) {
+//         return true
+//     } else {
+//         return false
+//     }
+
+
+
+
+// }
+
+// console.log(checkUser(userOne),
+// checkUser(userTwo)
+// );
+
+function makeSomeProportion(total, amount) {
+    return (amount / total * 100).toFixed(2)
 }
 
-console.log("Successful users:", successfull);
-console.log("Unsuccessful users:", unsuccessfull);
+console.log(
+    makeSomeProportion(10000, 2698)
+);
 
 
 
-console.warn("User with max expenses:", maxEx);
-console.warn("User with min expenses:", minEx);
+function getLongestName(p1, p2, p3) {
+  
+     if (p1.length >= p2.length && p1.length >= p3.length) {
+        return p1;
+    } else if (p2.length >= p1.length && p2.length >= p3.length) {
+        return p2;
+    } else if (p3.length >= p1.length && p3.length >= p2.length) {
+        return p3;
+    }
+}
+
+console.log(
+    getLongestName('Alex', 'Michael', 'Jeorge'),
+    getLongestName('alisher', 'amir', 'bobur')
+);
 
