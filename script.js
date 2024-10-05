@@ -831,29 +831,49 @@ for (const course of arr) {
 // checkUser(userTwo)
 // );
 
-function makeSomeProportion(total, amount) {
-    return (amount / total * 100).toFixed(2)
-}
+// function makeSomeProportion(total, amount) {
+//     return (amount / total * 100).toFixed(2)
+// }
 
-console.log(
-    makeSomeProportion(10000, 2698)
-);
+// console.log(
+//     makeSomeProportion(10000, 2698)
+// );
 
 
 
-function getLongestName(p1, p2, p3) {
+// function getLongestName(p1, p2, p3) {
   
-     if (p1.length >= p2.length && p1.length >= p3.length) {
-        return p1;
-    } else if (p2.length >= p1.length && p2.length >= p3.length) {
-        return p2;
-    } else if (p3.length >= p1.length && p3.length >= p2.length) {
-        return p3;
-    }
+//      if (p1.length >= p2.length && p1.length >= p3.length) {
+//         return p1;
+//     } else if (p2.length >= p1.length && p2.length >= p3.length) {
+//         return p2;
+//     } else if (p3.length >= p1.length && p3.length >= p2.length) {
+//         return p3;
+//     }
+// }
+
+// console.log(
+//     getLongestName('Alex', 'Michael', 'Jeorge'),
+//     getLongestName('alisher', 'amir', 'bobur')
+// );
+
+const names = ["Alex", "John", "Constantine", "Tyler", "Smith", "Smith"];
+const colors = ["red", "green", "blue", "black", "yellow", "red"];
+
+
+const items = document.querySelectorAll('.item');
+
+
+function getRandomIndex(max) {
+    return Math.floor(Math.random() * max);
 }
 
-console.log(
-    getLongestName('Alex', 'Michael', 'Jeorge'),
-    getLongestName('alisher', 'amir', 'bobur')
-);
+items.forEach((item, index) => {
+    const randomName = names[getRandomIndex(names.length)];
+    const randomColor = colors[getRandomIndex(colors.length)];
+  
+    item.textContent = randomName;
+    item.style.color = randomColor;
+});
+
 
